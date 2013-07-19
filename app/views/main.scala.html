@@ -1,479 +1,280 @@
 @(title: String)(content: Html)
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Head -->
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <title>Tweed.li | Stack up your tweets like a sir</title>
-
-
-    <!-- CSS-->
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/reset.css")" />
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/foundation.css")" />
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/style.css")" />
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/elastislide.css")" />
-    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/prettyphoto.css")" />
-
-    <!-- GOOGLE WEBFONT-->
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-
-    <!-- FAVICON-->
-    <link rel="shortcut icon" href="@routes.Assets.at("images/tweedly.jpg")">
-
-
-
-
+    <title>Tweedli - stack up your tweets with class</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href='@routes.Assets.at("css/bootstrap.min.css")' rel="stylesheet">
+    <link href='@routes.Assets.at("css/bootstrap-responsive.min.css")' rel="stylesheet">
+    <link href='@routes.Assets.at("css/style.css")' rel="stylesheet">
+    <link href='@routes.Assets.at("css/bootstrap-lightbox.min.css")' rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="image_src" href="thumbnail.png" />
+    <link rel="icon" type="image/ico" href="favicon.ico">
 </head>
-<body>
-<!--Topbar Section-->
-<div id="droptop">
-    <div class="topbar">
+<body data-spy="scroll" data-target=".navbar">
+<div id="home">
+    <div class="container">
         <div class="row">
-            <div class="twelve columns">
-                <p>Nulla ut elit sem, ac hendrerit felis. Aliquam eu tortor ac diam tincidunt adipiscing.</p>
+            <div class="span6 margin15 visible-phone">
+                <img src='@routes.Assets.at("img/logo.png")' alt="">
+                <h1 class="margin5">Stack up your tweets with class</h1>
+                <a class="button btn btn-large margin5" href="/authenticate/twitter"><img src='@routes.Assets.at("img/arrow_down.png")' alt=""> Sign in with Twitter</a>
+            </div>
+            <div class="span6">
+                <img src='@routes.Assets.at("img/iphone.png")' alt="">
+            </div>
+            <div class="span6 margin15 hidden-phone">
+                <img src='@routes.Assets.at("img/logo.png")' alt="">
+                <h1 class="margin5">Stack up your tweets with class</h1>
+                <a class="button btn btn-large margin5" href="/authenticate/twitter"><img src='@routes.Assets.at("img/arrow_down.png")' alt=""> Sign in with Twitter</a>
             </div>
         </div>
     </div>
-    <a href="#" class="topbar-btn" onclick="return false;"></a>
 </div>
-<!--Topbar Section-->
-
-<!-- Header Section -->
-<div id="header">
-    <div class="header-wrap row">
-        <div class="twelve columns">
-            <!-- Logo Section -->
-            <div class="four columns logo">
-                <h1><a href="index.html"><img src="@routes.Assets.at("images/logo.png")" alt=""></a></h1>
-            </div>
-            <!-- Logo Section -->
-
-            <!-- Contact Section -->
-            <div class="eight columns phonecontact">
-                Stack up your tweets like a sir
-            </div>
-            <!-- Contact Section -->
-        </div>
-    </div>
-</div>
-<!-- Header Section -->
-
-<div class="clear"></div>
-
-<!--Slider Section-->
-<div class="callbacks_container slider">
-    <ul class="rslides" id="slider3">
-        <li><a href="#"><img src="@routes.Assets.at("demo/slides/1.jpg")" alt="" /></a></li>
-        <li><a href="#"><img src="@routes.Assets.at("demo/slides/2.jpg")" alt="" /></a></li>
-        <li><a href="#"><img src="@routes.Assets.at("demo/slides/3.jpg")" alt="" /></a></li>
-    </ul>
-</div>
-<!--Slider Section-->
-
-<div class="clear"></div>
-<!--- TODO APP -->
-<div class="row">
-<div id="todoapp">
-
-    <header>
-        <h1>Todos</h1>
-        <input id="new-todo" type="text" placeholder="What needs to be done?">
-    </header>
-
-    <section id="main">
-        <input id="toggle-all" type="checkbox">
-        <label for="toggle-all">Mark all as complete</label>
-        <ul id="todo-list"></ul>
-    </section>
-
-    <footer>
-        <a id="clear-completed">Clear completed</a>
-        <div id="todo-count"></div>
-    </footer>
-
-</div>
-
-<div id="instructions">
-    Double-click to edit a todo.
-</div>
-
-<div id="credits">
-    Created by
-    <br />
-    <a href="http://jgn.me/">J&eacute;r&ocirc;me Gravel-Niquet</a>.
-    <br />Rewritten by: <a href="http://addyosmani.github.com/todomvc">TodoMVC</a>.
-</div>
-
-<!-- Templates -->
-
-<script type="text/template" id="item-template">
-    <div class="view">
-        <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
-        <label><%- title %></label>
-        <a class="destroy"></a>
-    </div>
-    <input class="edit" type="text" value="<%- title %>" />
-</script>
-
-<script type="text/template" id="stats-template">
-    <% if (done) { %>
-    <a id="clear-completed">Clear <%= done %> completed <%= done == 1 ? 'item' : 'items' %></a>
-    <% } %>
-    <div class="todo-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'items' %> left</div>
-</script>
-</div>
-<!--- END TODO APP -->
-<!-- Welcome wrap Section -->
-<div class="row">
-    <div class="welcome">
-        <div class="welcome-content twelve columns">
-            <h1>A perfect landing page for your products</h1>
-            <p>Thmol estie luctus nisl non consectetur eleifend lacinia.</p>
-            <!-- App icons Section -->
-            <div class="six columns app">
-                <img src="@routes.Assets.at("images/app.png")" alt="" />
-            </div>
-
-            <div class="six columns app2">
-                <img src="@routes.Assets.at("images/app1.png")" alt="" />
-            </div>
-            <!-- App icons Section -->
-        </div>
-    </div>
-</div>
-<!-- Welcome wrap Section -->
-
-<div class="space40"></div>
-<div class="clear"></div>
-<div class="space40"></div>
-
-<div class="row">
-    <div class="wrap">
-        <h4>Product Features</h4>
-        <div class="line"></div>
-        <div class="space30"></div>
-
-        <!-- Features wrap Section -->
-        <div class="twelve columns">
-            <div class="features-wrap">
-                <div class="six columns features-content">
-                    <div class="features-icon"><img src="@routes.Assets.at("images/icon1.png")" alt="" /></div>
-                    <div class="features-description">
-                        <h5>User Friendly</h5>
-                        <p>Nulla ut elit sem, ac hendrerit felis. Aliquam eu tortor ac diam tincidunt adipiscing. Integer ac libero urna, a accumsan risus. Etiam molestie luctus nisl non consectetur eleifend lacinia leo.</p>
-                    </div>
-                </div>
-
-                <div class="six columns features-content">
-                    <div class="features-icon"><img src="@routes.Assets.at("images/icon2.png")" alt="" /></div>
-                    <div class="features-description">
-                        <h5>Worldclass Support</h5>
-                        <p>Nulla ut elit sem, ac hendrerit felis. Aliquam eu tortor ac diam tincidunt adipiscing. Integer ac libero urna, a accumsan risus. Etiam molestie luctus nisl non consectetur eleifend lacinia leo.</p>
-                    </div>
-                </div>
-
-                <div class="six columns features-content">
-                    <div class="features-icon"><img src="@routes.Assets.at("images/icon3.png")" alt="" /></div>
-                    <div class="features-description">
-                        <h5>Easy Install</h5>
-                        <p>Nulla ut elit sem, ac hendrerit felis. Aliquam eu tortor ac diam tincidunt adipiscing. Integer ac libero urna, a accumsan risus. Etiam molestie luctus nisl non consectetur eleifend lacinia leo.</p>
-                    </div>
-                </div>
-
-                <div class="six columns features-content">
-                    <div class="features-icon"><img src="@routes.Assets.at("images/icon4.png")" alt="" /></div>
-                    <div class="features-description">
-                        <h5>Cross Browser</h5>
-                        <p>Nulla ut elit sem, ac hendrerit felis. Aliquam eu tortor ac diam tincidunt adipiscing. Integer ac libero urna, a accumsan risus. Etiam molestie luctus nisl non consectetur eleifend lacinia leo.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Features wrap Section -->
-    </div>
-</div>
-
-<div class="space40"></div>
-<div class="clear"></div>
-<div class="space40"></div>
-
-<div class="row">
-    <div class="wrap">
-        <h4>Take a look at our screenshots</h4>
-        <div class="line"></div>
-        <div class="space40"></div>
-        <!-- Screenshot Carousel section -->
-        <div id="carousel" class="es-carousel-wrapper">
-            <div class="es-carousel">
-                <ul>
-                    <li><a href="demo/mason/1.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/1.jpg")" alt="" /></a></li>
-                    <li><a href="demo/mason/2.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/2.jpg")" alt="" /></a></li>
-                    <li><a href="demo/mason/3.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/3.jpg")" alt="" /></a></li>
-                    <li><a href="demo/mason/4.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/4.jpg")" alt="" /></a></li>
-                    <li><a href="demo/mason/1.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/1.jpg")" alt="" /></a></li>
-                    <li><a href="demo/mason/2.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/2.jpg")" alt="" /></a></li>
-                    <li><a href="demo/mason/3.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/3.jpg")" alt="" /></a></li>
-                    <li><a href="demo/mason/4.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/4.jpg")" alt="" /></a></li>
-                    <li><a href="demo/mason/1.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/1.jpg")" alt="" /></a></li>
-                    <li><a href="demo/mason/2.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/2.jpg")" alt="" /></a></li>
-                    <li><a href="demo/mason/3.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/3.jpg")" alt="" /></a></li>
-                    <li><a href="demo/mason/4.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/4.jpg")" alt="" /></a></li>
-                    <li><a href="demo/mason/1.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/1.jpg")" alt="" /></a></li>
-                    <li><a href="demo/mason/2.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/2.jpg")" alt="" /></a></li>
+<!-- break -->
+<div id="features">
+    <div class="navbar" id="navbar_feat">
+        <div class="container separator">
+            <div class="navbar-inner">
+                <ul class="nav">
+                    <li class="active"><a href="#navbar_feat">Features</a></li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="#navbar_about">About</a></li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="#terms">Terms</a></li>
                 </ul>
             </div>
         </div>
-        <!-- Screenshot Carousel section -->
+    </div>
+    <div class="container">
+        <div class="row" id="feat1">
+            <div class="span6 margin5 margin-5">
+                <img src='@routes.Assets.at("img/features_1.jpg")' alt="">
+            </div>
+            <div class="span6 margin10">
+                <h2>Information<span><br> that you need</span></h2>
+                <p>Aoccdrnig to a rscheearch at Cmabrigde Uinervtisy, it deosn't mttaer in waht oredr the ltteers in a wrod are,
+                    the olny iprmoetnt tihng is taht the frist and lsat ltteer be at the rghit pclae.<br>
+                    The rset can be a toatl mses and you can sitll raed it wouthit porbelm.
+                    Tihs is bcuseae the huamn mnid deos not raed ervey lteter by istlef, but the wrod as a wlohe. Awesomeness, true story!</p>
+                <a href="#home"><img src='@routes.Assets.at("img/back.png")' alt="" class="margin5"></a>
+                <a href="#feat2"><img src='@routes.Assets.at("img/more.png")' alt="" class="margin5"></a>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="row" id="feat2">
+            <div class="span6 margin10">
+                <h2><span>Anytime</span><br> anystyle</h2>
+                <p>Aoccdrnig to a rscheearch at Cmabrigde Uinervtisy, it deosn't mttaer in waht oredr the ltteers in a wrod are,
+                    the olny iprmoetnt tihng is taht the frist and lsat ltteer be at the rghit pclae.<br>
+                    The rset can be a toatl mses and you can sitll raed it wouthit porbelm.
+                    Tihs is bcuseae the huamn mnid deos not raed ervey lteter by istlef, but the wrod as a wlohe. Awesomeness, true story!</p>
+                <a href="#home"><img src='@routes.Assets.at("img/back.png")' alt="" class="margin5"></a>
+                <a href="#gallery"><img src='@routes.Assets.at("img/more.png")' alt="" class="margin5"></a>
+            </div>
+            <div class="span6 margin5 margin-5">
+                <img src='@routes.Assets.at("img/features_2.jpg")' alt="">
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="row" id="gallery">
+            <div class="span12 margin5 margin-5">
+                <h2><span>Shots</span></h2>
+                <ul class="thumbnails margin5">
+                    <li class="span3">
+                        <a data-toggle="lightbox" href="#shot1" class="thumbnail">
+                            <img src='@routes.Assets.at("img/gallery/shot1.png")' alt="">
+                        </a>
+                    </li>
+                    <li class="span3">
+                        <a data-toggle="lightbox" href="#shot2" class="thumbnail">
+                            <img src='@routes.Assets.at("img/gallery/shot2.png")' alt="">
+                        </a>
+                    </li>
+                    <li class="span3">
+                        <a data-toggle="lightbox" href="#shot3" class="thumbnail">
+                            <img src='@routes.Assets.at("img/gallery/shot3.png")' alt="">
+                        </a>
+                    </li>
+                    <li class="span3">
+                        <a data-toggle="lightbox" href="#shot4" class="thumbnail">
+                            <img src='@routes.Assets.at("img/gallery/shot4.png")' alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="shot1" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
+            <div class='lightbox-content'>
+                <img src='@routes.Assets.at("img/gallery/shot1@@2x.png")' alt="">
+            </div>
+        </div>
+        <div id="shot2" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
+            <div class='lightbox-content'>
+                <img src='@routes.Assets.at("img/gallery/shot2@@2x.png")' alt="">
+            </div>
+        </div>
+        <div id="shot3" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
+            <div class='lightbox-content'>
+                <img src='@routes.Assets.at("img/gallery/shot3@@2x.png")' alt="">
+            </div>
+        </div>
+        <div id="shot4" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
+            <div class='lightbox-content'>
+                <img src='@routes.Assets.at("img/gallery/shot4@@2x.png")' alt="">
+            </div>
+        </div>
     </div>
 </div>
-
-<div class="space40"></div>
-<div class="clear"></div>
-<div class="space40"></div>
-<div class="clear"></div>
-<div class="space40"></div>
-
-<div class="row">
-    <div class="wrap">
-        <div class="seven columns">
-
-            <ul class="tabs">
-                <li><a href="#tab1">Services</a></li>
-                <li><a href="#tab2">Video</a></li>
-                <li><a href="#tab3">Features</a></li>
-            </ul>
-
-            <!-- Tab Content section -->
-            <div class="tab_container">
-
-                <div id="tab1" class="tab_content">
-                    <img src="@routes.Assets.at("demo/mason/5.jpg")" alt="" class="align-left" width="260" height="200" />
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a feugiat sem. Aliquam ullamcorper fermentum sem, at consectetur nunc tristique ac. Donec enim nulla, rutrum id semper vel, pharetra sit amet semlass aptent taciti socio conubia nostraleo.</p>
-                </div>
-
-                <div id="tab2" class="tab_content">
-  XXX
-                </div>
-
-                <div id="tab3" class="tab_content">
-                    <img src="@routes.Assets.at("demo/mason/5.jpg")" alt="" class="align-left" width="260" height="200" />
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a feugiat sem. Aliquam ullamcorper fermentum sem, at consectetur nunc tristique ac. Donec enim nulla, rutrum id semper vel, pharetra sit amet semlass aptent taciti socio conubia nostraleo.</p>
-                </div>
-
+<!-- break -->
+<div id="about">
+    <div class="navbar" id="navbar_about">
+        <div class="container separator">
+            <div class="navbar-inner">
+                <ul class="nav">
+                    <li class="active"><a href="#navbar_feat">Features</a></li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="#navbar_about">About</a></li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="#terms">Terms</a></li>
+                </ul>
             </div>
-            <!-- Tab Content section -->
-        </div>
-
-        <div class="five columns">
-            <!-- Subscribe form section -->
-            <div class="subscribe">
-                <div class="subscribe-inner">
-                    <img src="@routes.Assets.at("images/mail.png")" width="50" height="50" class="align-left "style="margin-top:5px;" alt="" />
-                    <p>Join our list of
-                        <br/>
-                        <span>Awesome Subscribers</span>
-                    </p>
-
-                    <form class="subform" action="" id="subscription" method="">
-                        <fieldset>
-                            <input type="text" name="firstname" id="firstname" placeholder="First Name" />
-                            <input type="text" name="lastname" id="lastname" placeholder="Last Name" />
-                            <input type="text" name="emailaddr" id="emailaddr" placeholder="E-mail address" />
-                            <div class="submit-container">
-                                <input class="submit-button" type="submit" value="Subscribe" />
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-            <!-- Subscribe form section -->
         </div>
     </div>
-</div>
-
-<div class="space40"></div>
-<div class="clear"></div>
-<div class="space40"></div>
-<div class="clear"></div>
-<div class="space20"></div>
-
-<div class="row">
-    <div class="wrap">
-        <h4>What our clients feel about us?</h4>
-        <div class="line"></div>
-        <div class="space50"></div>
-        <div class="twelve columns">
-            <!-- Testimonial content section -->
-            <div class="four columns testimonial">
-                <div class="avatar">
-                    <img src="@routes.Assets.at("images/photo-bg.png")" alt="" class="photo-bg"/>
-                    <img src="@routes.Assets.at("images/photo.jpg")" alt="" class="avatar" />
-                </div>
-
-                <p class="content">
-                    <span class="laquo">&nbsp;</span>Lorem ipsum dolor sit amet, sanctus corrumpit ei quo, eu quo meis brute, sed ut possit vocibus graecis.<span class="raquo">&nbsp;</span>
+    <div class="container">
+        <div class="row">
+            <div class="span4 margin5 margin-5">
+                <h2><span>Team</span></h2>
+                <img src='@routes.Assets.at("img/team.png")' alt="">
+                <p>Aoccdrnig to a rscheearch at Cmabrigde Uinervtisy, it deosn't mttaer in waht oredr the ltteers in a wrod are,
+                    the olny iprmoetnt tihng is taht the frist and lsat ltteer be at the rghit pclae.</p>
+            </div>
+            <div class="span4 margin5 margin-5">
+                <h2><span>Idea</span></h2>
+                <img src='@routes.Assets.at("img/idea.png")' alt="">
+                <p>The rset can be a toatl mses and you can sitll raed it wouthit porbelm.
+                    Tihs is bcuseae the huamn mnid deos not raed ervey lteter by istlef, but the wrod as a wlohe. Awesomeness, true story!</p>
+            </div>
+            <div class="span4 margin5 margin-5">
+                <h2><span>Contact</span></h2>
+                <div id="map_canvas"></div>
+                <p><strong>Awesomeapp, Inc.</strong><br>
+                    795 Folsom St., Suite 600<br>
+                    San Francisco, CA 94107<br>
+                    <abbr title="Phone">P:</abbr> (123) 456-7890
                 </p>
-
-                <div class="sign">
-                    <a href="#">John Doe</a>
-                    <p>Web-designer</p>
-                </div>
-            </div>
-
-            <div class="four columns testimonial">
-                <div class="avatar">
-                    <img src="@routes.Assets.at("images/photo-bg.png")" alt="" class="photo-bg"/>
-                    <img src="@routes.Assets.at("images/photo.jpg")" alt="" class="avatar" />
-                </div>
-
-                <p class="content">
-                    <span class="laquo">&nbsp;</span>Lorem ipsum dolor sit amet, sanctus corrumpit ei quo, eu quo meis brute, sed ut possit vocibus graecis.<span class="raquo">&nbsp;</span>
-                </p>
-
-                <div class="sign">
-                    <a href="#">John Doe</a>
-                    <p>Web-designer</p>
-                </div>
-            </div>
-
-            <div class="four columns testimonial">
-                <div class="avatar">
-                    <img src="@routes.Assets.at("images/photo-bg.png")" alt="" class="photo-bg"/>
-                    <img src="@routes.Assets.at("images/photo.jpg")" alt="" class="avatar" />
-                </div>
-
-                <p class="content">
-                    <span class="laquo">&nbsp;</span>Lorem ipsum dolor sit amet, sanctus corrumpit ei quo, eu quo meis brute, sed ut possit vocibus graecis.<span class="raquo">&nbsp;</span>
-                </p>
-
-                <div class="sign">
-                    <a href="#">John Doe</a>
-                    <p>Web-designer</p>
-                </div>
             </div>
         </div>
-        <!-- Testimonial content section -->
     </div>
 </div>
-
-<div class="space40"></div>
-<div class="clear"></div>
-<div class="space40"></div>
-
-<div class="wrap clients row">
-    <!-- Clients content section -->
-    <div class="three columns" align="middle">
-        <img src="@routes.Assets.at("demo/clients/1.jpg")" alt="" />
-    </div>
-
-    <div class="three columns" align="middle">
-        <img src="@routes.Assets.at("demo/clients/2.jpg")" alt="" />
-    </div>
-
-    <div class="three columns" align="middle">
-        <img src="@routes.Assets.at("demo/clients/3.jpg")" alt="" />
-    </div>
-
-    <div class="three columns" align="middle">
-        <img src="@routes.Assets.at("demo/clients/4.jpg")" alt="" />
-    </div>
-    <!-- Clients content section -->
-</div>
-
-<div class="space40"></div>
-<div class="clear"></div>
-<div class="space40"></div>
-
-<div class="row">
-    <div class="wrap">
-        <div class="contact-content">
-            <!-- Contact content section -->
-            <div class="twelve columns">
-                <h1>Any more questions in your mind?</h1>
-                <p>Feel free to write us or just call us.</p>
-                <div class="six columns email contact">
-                    support@@mail.com
+<div id="terms">
+    <div class="container">
+        <div class="row">
+            <div class="span6 offset3 margin15 margin-15">
+                <p>read<a href="#termsofservice" data-toggle="modal"> terms of service</a> / <a href="#privacypolicy" data-toggle="modal">privacy policy</a></p>
+                <!--start terms of service popup-->
+                <div id="termsofservice" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel" aria-hidden="true">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                        <h3 id="termsModalLabel">Terms of Service</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>The following terms and conditions govern your use of this web site,
+                            and any content made available from or through the following Envato Marketplaces web sites.</p>
+                        <p>Your terms of service text...</p>
+                        <p>Any questions about this Privacy Policy should be addressed to support@@example.com</p>
+                    </div>
+                    <button class="btn margin-5" data-dismiss="modal" aria-hidden="true">Close</button>
                 </div>
-
-                <div class="six columns phone contact">
-                    +1800 1234 5678
+                <!--end terms of service popup-->
+                <!--start privacy policy popup-->
+                <div id="privacypolicy" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="privacyModalLabel" aria-hidden="true">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                        <h3 id="privacyModalLabel">Privacy Policy</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>Application creator may periodically update this policy.
+                            We will notify you about significant changes in the way we treat personal information by sending a notice to the
+                            primary email address specified in your primary account holder account or by placing a prominent notice on our site.</p>
+                        <p>Your privacy policy text...</p>
+                        <p>Any questions about this Privacy Policy should be addressed to support@@example.com</p>
+                    </div>
+                    <button  type="button" class="btn margin-5" data-dismiss="modal" aria-hidden="true">Close</button>
                 </div>
+                <!--end privacy policy popup-->
+                <h1>Like it?</h1>
+                <a class="button btn btn-large margin5" href="http://themeforest.net/item/superawesome-retina-bootstrap-app-landing-page/3597882?ref=awerest"><img src='@routes.Assets.at("img/arrow_down.png")' alt=""> Download the app</a>
             </div>
-            <!-- Contact content section -->
         </div>
     </div>
 </div>
-
-<div class="space40"></div>
-<div class="clear"></div>
-<div class="space40"></div>
-
+<!-- break -->
 <div class="footer">
-    <div class="row">
-        <!-- Footer content section -->
-        <div class="twelve columns">
-            <div class="four columns footer-widget">
-                <h1><a href="index.html"><img src="@routes.Assets.at("images/logo-footer.png")" alt="" /></a></h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a feugiat sem.</p>
-                <div class="space10"></div>
-                <p>Copyright 2012. Landingapp</p>
-                <div class="space10"></div>
-                <div class="social">
-                    <ul class="social-networks">
-                        <li class="icon-twitter"><a href="#">Twitter</a></li>
-                        <li class="icon-facebook"><a href="#">Facebook</a></li>
-                        <li class="icon-gplus"><a href="#">Google</a></li>
-                        <li class="icon-dribbble"><a href="#">Dribbble</a></li>
-                        <li class="icon-forrst"><a href="#">Forrst</a></li>
-                        <li class="icon-skype"><a href="#">Skype</a></li>
-                        <li class="icon-flickr"><a href="#">Flickr</a></li>
-                        <li class="icon-vimeo"><a href="#">Vimeo</a></li>
-                        <li class="icon-pinterest"><a href="#">Pinterest</a></li>
-                        <li class="icon-rss"><a href="#">RSS</a></li>
-                    </ul>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="span4 margin5 margin-5">
+                <span>"Stay in touch and have a nice app!"</span>
             </div>
-
-            <div class="four columns footer-widget">
-                <h4>Flickr</h4>
-                <div class="line1"></div>
-                <div class="space30"></div>
-                <ul id="flickr" class="thumbs"></ul>
+            <div class="span4 margin5 margin-5">
+                <img src='@routes.Assets.at("img/logo_footer.png")' alt="">
             </div>
-
-            <div class="four columns footer-widget">
-                <h4>Tweets</h4>
-                <div class="line1"></div>
-                <div class="space30"></div>
-                <div id="tweets" class="tweet"></div>
+            <div class="span4 margin5 margin-5">
+                <a class="button btn" href="http://www.facebook.com/awerest" target="_blank"><img src='@routes.Assets.at("img/social/facebook_icon.png")' alt=""></a>
+                <a class="button btn" href="http://twitter.com/awerest" target="_blank"><img src='@routes.Assets.at("img/social/twitter_icon.png")' alt=""></a>
+                <a class="button btn" href="http://instagram.com/awerest/" target="_blank"><img src='@routes.Assets.at("img/social/instagram_icon.png")' alt=""></a>
+                <a class="button btn" href="http://pinterest.com/awerest/" target="_blank"><img src='@routes.Assets.at("img/social/pinterest_icon.png")' alt=""></a>
+                <a class="button btn" href="mailto:someone@@example.com" target="_blank"><img src='@routes.Assets.at("img/social/mail_icon.png")' alt=""></a>
             </div>
         </div>
-        <!-- Footer content section -->
     </div>
 </div>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src='@routes.Assets.at("js/bootstrap.min.js")'></script>
+<script src='@routes.Assets.at("js/retina.js")'></script>
+<script src='@routes.Assets.at("js/jquery.backstretch.min.js")'></script>
+<script src='@routes.Assets.at("js/bootstrap-lightbox.min.js")'></script>
+<script src='@routes.Assets.at("js/custom.js")'></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript">
+    var settingsItemsMap = {
+    zoom: 13,
+    center: new google.maps.LatLng(37.782163,-122.400591),
+    panControl: false,
+    zoomControl: true,
+    zoomControlOptions: {
+    style: google.maps.ZoomControlStyle.SMALL
+    },
+    mapTypeControl: false,
+    scaleControl: false,
+    streetViewControl: false,
+    overviewMapControl: false,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById('map_canvas'), settingsItemsMap );
 
+    var myMarker = new google.maps.Marker({
+    position: new google.maps.LatLng(37.782163,-122.400591),
+    draggable: false
+    });
 
+    map.setCenter(myMarker.position);
+    myMarker.setMap(map);
+</script>
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'YOUR GOOGLE ANALYTICS CODE']);
+    _gaq.push(['_trackPageview']);
 
-
-
-
-
-
-<!-- //SCRIPTS -->
-<script type="text/javascript" src='@routes.Assets.at("javascripts/jquery-1.7.2.min.js")'></script>
-<script type='text/javascript' src='@routes.Assets.at("javascriptsresponsiveslides.min.js")'></script>
-<script type="text/javascript" src='@routes.Assets.at("javascripts/jquery.easing.1.3.js")'></script>
-<script type="text/javascript" src='@routes.Assets.at("javascripts/jquery.elastislide.js")'></script>
-<script type="text/javascript" src='@routes.Assets.at("javascripts/jflickrfeed.min.js")'></script>
-<script type="text/javascript" src='@routes.Assets.at("javascripts/jquery.prettyphoto.js")'></script>
-<script type="text/javascript" src='@routes.Assets.at("javascripts/foundation.min.js")'></script>
-<script type="text/javascript" src='@routes.Assets.at("javascripts/libs/underscore-min.js")'></script>
-<script type="text/javascript" src='@routes.Assets.at("javascripts/libs/backbone-min.js")'></script>
-
-<script type="text/javascript" src='@routes.Assets.at("javascripts/main.js")'></script>
-<script type="text/javascript" src='@routes.Assets.at("javascripts/app.js")'></script>
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
 </body>
 </html>
