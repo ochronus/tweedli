@@ -1,0 +1,479 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Head -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Tweed.li | Stack up your tweets like a sir</title>
+
+
+    <!-- CSS-->
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/reset.css")" />
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/foundation.css")" />
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/style.css")" />
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/elastislide.css")" />
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/prettyphoto.css")" />
+
+    <!-- GOOGLE WEBFONT-->
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- FAVICON-->
+    <link rel="shortcut icon" href="@routes.Assets.at("images/tweedly.jpg")">
+
+
+
+
+</head>
+<body>
+<!--Topbar Section-->
+<div id="droptop">
+    <div class="topbar">
+        <div class="row">
+            <div class="twelve columns">
+                <p>Nulla ut elit sem, ac hendrerit felis. Aliquam eu tortor ac diam tincidunt adipiscing.</p>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="topbar-btn" onclick="return false;"></a>
+</div>
+<!--Topbar Section-->
+
+<!-- Header Section -->
+<div id="header">
+    <div class="header-wrap row">
+        <div class="twelve columns">
+            <!-- Logo Section -->
+            <div class="four columns logo">
+                <h1><a href="index.html"><img src="@routes.Assets.at("images/logo.png")" alt=""></a></h1>
+            </div>
+            <!-- Logo Section -->
+
+            <!-- Contact Section -->
+            <div class="eight columns phonecontact">
+                Stack up your tweets like a sir
+            </div>
+            <!-- Contact Section -->
+        </div>
+    </div>
+</div>
+<!-- Header Section -->
+
+<div class="clear"></div>
+
+<!--Slider Section-->
+<div class="callbacks_container slider">
+    <ul class="rslides" id="slider3">
+        <li><a href="#"><img src="@routes.Assets.at("demo/slides/1.jpg")" alt="" /></a></li>
+        <li><a href="#"><img src="@routes.Assets.at("demo/slides/2.jpg")" alt="" /></a></li>
+        <li><a href="#"><img src="@routes.Assets.at("demo/slides/3.jpg")" alt="" /></a></li>
+    </ul>
+</div>
+<!--Slider Section-->
+
+<div class="clear"></div>
+<!--- TODO APP -->
+<div class="row">
+<div id="todoapp">
+
+    <header>
+        <h1>Todos</h1>
+        <input id="new-todo" type="text" placeholder="What needs to be done?">
+    </header>
+
+    <section id="main">
+        <input id="toggle-all" type="checkbox">
+        <label for="toggle-all">Mark all as complete</label>
+        <ul id="todo-list"></ul>
+    </section>
+
+    <footer>
+        <a id="clear-completed">Clear completed</a>
+        <div id="todo-count"></div>
+    </footer>
+
+</div>
+
+<div id="instructions">
+    Double-click to edit a todo.
+</div>
+
+<div id="credits">
+    Created by
+    <br />
+    <a href="http://jgn.me/">J&eacute;r&ocirc;me Gravel-Niquet</a>.
+    <br />Rewritten by: <a href="http://addyosmani.github.com/todomvc">TodoMVC</a>.
+</div>
+
+<!-- Templates -->
+
+<script type="text/template" id="item-template">
+    <div class="view">
+        <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+        <label><%- title %></label>
+        <a class="destroy"></a>
+    </div>
+    <input class="edit" type="text" value="<%- title %>" />
+</script>
+
+<script type="text/template" id="stats-template">
+    <% if (done) { %>
+    <a id="clear-completed">Clear <%= done %> completed <%= done == 1 ? 'item' : 'items' %></a>
+    <% } %>
+    <div class="todo-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'items' %> left</div>
+</script>
+</div>
+<!--- END TODO APP -->
+<!-- Welcome wrap Section -->
+<div class="row">
+    <div class="welcome">
+        <div class="welcome-content twelve columns">
+            <h1>A perfect landing page for your products</h1>
+            <p>Thmol estie luctus nisl non consectetur eleifend lacinia.</p>
+            <!-- App icons Section -->
+            <div class="six columns app">
+                <img src="@routes.Assets.at("images/app.png")" alt="" />
+            </div>
+
+            <div class="six columns app2">
+                <img src="@routes.Assets.at("images/app1.png")" alt="" />
+            </div>
+            <!-- App icons Section -->
+        </div>
+    </div>
+</div>
+<!-- Welcome wrap Section -->
+
+<div class="space40"></div>
+<div class="clear"></div>
+<div class="space40"></div>
+
+<div class="row">
+    <div class="wrap">
+        <h4>Product Features</h4>
+        <div class="line"></div>
+        <div class="space30"></div>
+
+        <!-- Features wrap Section -->
+        <div class="twelve columns">
+            <div class="features-wrap">
+                <div class="six columns features-content">
+                    <div class="features-icon"><img src="@routes.Assets.at("images/icon1.png")" alt="" /></div>
+                    <div class="features-description">
+                        <h5>User Friendly</h5>
+                        <p>Nulla ut elit sem, ac hendrerit felis. Aliquam eu tortor ac diam tincidunt adipiscing. Integer ac libero urna, a accumsan risus. Etiam molestie luctus nisl non consectetur eleifend lacinia leo.</p>
+                    </div>
+                </div>
+
+                <div class="six columns features-content">
+                    <div class="features-icon"><img src="@routes.Assets.at("images/icon2.png")" alt="" /></div>
+                    <div class="features-description">
+                        <h5>Worldclass Support</h5>
+                        <p>Nulla ut elit sem, ac hendrerit felis. Aliquam eu tortor ac diam tincidunt adipiscing. Integer ac libero urna, a accumsan risus. Etiam molestie luctus nisl non consectetur eleifend lacinia leo.</p>
+                    </div>
+                </div>
+
+                <div class="six columns features-content">
+                    <div class="features-icon"><img src="@routes.Assets.at("images/icon3.png")" alt="" /></div>
+                    <div class="features-description">
+                        <h5>Easy Install</h5>
+                        <p>Nulla ut elit sem, ac hendrerit felis. Aliquam eu tortor ac diam tincidunt adipiscing. Integer ac libero urna, a accumsan risus. Etiam molestie luctus nisl non consectetur eleifend lacinia leo.</p>
+                    </div>
+                </div>
+
+                <div class="six columns features-content">
+                    <div class="features-icon"><img src="@routes.Assets.at("images/icon4.png")" alt="" /></div>
+                    <div class="features-description">
+                        <h5>Cross Browser</h5>
+                        <p>Nulla ut elit sem, ac hendrerit felis. Aliquam eu tortor ac diam tincidunt adipiscing. Integer ac libero urna, a accumsan risus. Etiam molestie luctus nisl non consectetur eleifend lacinia leo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Features wrap Section -->
+    </div>
+</div>
+
+<div class="space40"></div>
+<div class="clear"></div>
+<div class="space40"></div>
+
+<div class="row">
+    <div class="wrap">
+        <h4>Take a look at our screenshots</h4>
+        <div class="line"></div>
+        <div class="space40"></div>
+        <!-- Screenshot Carousel section -->
+        <div id="carousel" class="es-carousel-wrapper">
+            <div class="es-carousel">
+                <ul>
+                    <li><a href="demo/mason/1.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/1.jpg")" alt="" /></a></li>
+                    <li><a href="demo/mason/2.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/2.jpg")" alt="" /></a></li>
+                    <li><a href="demo/mason/3.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/3.jpg")" alt="" /></a></li>
+                    <li><a href="demo/mason/4.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/4.jpg")" alt="" /></a></li>
+                    <li><a href="demo/mason/1.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/1.jpg")" alt="" /></a></li>
+                    <li><a href="demo/mason/2.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/2.jpg")" alt="" /></a></li>
+                    <li><a href="demo/mason/3.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/3.jpg")" alt="" /></a></li>
+                    <li><a href="demo/mason/4.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/4.jpg")" alt="" /></a></li>
+                    <li><a href="demo/mason/1.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/1.jpg")" alt="" /></a></li>
+                    <li><a href="demo/mason/2.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/2.jpg")" alt="" /></a></li>
+                    <li><a href="demo/mason/3.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/3.jpg")" alt="" /></a></li>
+                    <li><a href="demo/mason/4.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/4.jpg")" alt="" /></a></li>
+                    <li><a href="demo/mason/1.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/1.jpg")" alt="" /></a></li>
+                    <li><a href="demo/mason/2.jpg" rel="prettyPhoto" title=""><img src="@routes.Assets.at("demo/mason/2.jpg")" alt="" /></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Screenshot Carousel section -->
+    </div>
+</div>
+
+<div class="space40"></div>
+<div class="clear"></div>
+<div class="space40"></div>
+<div class="clear"></div>
+<div class="space40"></div>
+
+<div class="row">
+    <div class="wrap">
+        <div class="seven columns">
+
+            <ul class="tabs">
+                <li><a href="#tab1">Services</a></li>
+                <li><a href="#tab2">Video</a></li>
+                <li><a href="#tab3">Features</a></li>
+            </ul>
+
+            <!-- Tab Content section -->
+            <div class="tab_container">
+
+                <div id="tab1" class="tab_content">
+                    <img src="@routes.Assets.at("demo/mason/5.jpg")" alt="" class="align-left" width="260" height="200" />
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a feugiat sem. Aliquam ullamcorper fermentum sem, at consectetur nunc tristique ac. Donec enim nulla, rutrum id semper vel, pharetra sit amet semlass aptent taciti socio conubia nostraleo.</p>
+                </div>
+
+                <div id="tab2" class="tab_content">
+  XXX
+                </div>
+
+                <div id="tab3" class="tab_content">
+                    <img src="@routes.Assets.at("demo/mason/5.jpg")" alt="" class="align-left" width="260" height="200" />
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a feugiat sem. Aliquam ullamcorper fermentum sem, at consectetur nunc tristique ac. Donec enim nulla, rutrum id semper vel, pharetra sit amet semlass aptent taciti socio conubia nostraleo.</p>
+                </div>
+
+            </div>
+            <!-- Tab Content section -->
+        </div>
+
+        <div class="five columns">
+            <!-- Subscribe form section -->
+            <div class="subscribe">
+                <div class="subscribe-inner">
+                    <img src="@routes.Assets.at("images/mail.png")" width="50" height="50" class="align-left "style="margin-top:5px;" alt="" />
+                    <p>Join our list of
+                        <br/>
+                        <span>Awesome Subscribers</span>
+                    </p>
+
+                    <form class="subform" action="" id="subscription" method="">
+                        <fieldset>
+                            <input type="text" name="firstname" id="firstname" placeholder="First Name" />
+                            <input type="text" name="lastname" id="lastname" placeholder="Last Name" />
+                            <input type="text" name="emailaddr" id="emailaddr" placeholder="E-mail address" />
+                            <div class="submit-container">
+                                <input class="submit-button" type="submit" value="Subscribe" />
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <!-- Subscribe form section -->
+        </div>
+    </div>
+</div>
+
+<div class="space40"></div>
+<div class="clear"></div>
+<div class="space40"></div>
+<div class="clear"></div>
+<div class="space20"></div>
+
+<div class="row">
+    <div class="wrap">
+        <h4>What our clients feel about us?</h4>
+        <div class="line"></div>
+        <div class="space50"></div>
+        <div class="twelve columns">
+            <!-- Testimonial content section -->
+            <div class="four columns testimonial">
+                <div class="avatar">
+                    <img src="@routes.Assets.at("images/photo-bg.png")" alt="" class="photo-bg"/>
+                    <img src="@routes.Assets.at("images/photo.jpg")" alt="" class="avatar" />
+                </div>
+
+                <p class="content">
+                    <span class="laquo">&nbsp;</span>Lorem ipsum dolor sit amet, sanctus corrumpit ei quo, eu quo meis brute, sed ut possit vocibus graecis.<span class="raquo">&nbsp;</span>
+                </p>
+
+                <div class="sign">
+                    <a href="#">John Doe</a>
+                    <p>Web-designer</p>
+                </div>
+            </div>
+
+            <div class="four columns testimonial">
+                <div class="avatar">
+                    <img src="@routes.Assets.at("images/photo-bg.png")" alt="" class="photo-bg"/>
+                    <img src="@routes.Assets.at("images/photo.jpg")" alt="" class="avatar" />
+                </div>
+
+                <p class="content">
+                    <span class="laquo">&nbsp;</span>Lorem ipsum dolor sit amet, sanctus corrumpit ei quo, eu quo meis brute, sed ut possit vocibus graecis.<span class="raquo">&nbsp;</span>
+                </p>
+
+                <div class="sign">
+                    <a href="#">John Doe</a>
+                    <p>Web-designer</p>
+                </div>
+            </div>
+
+            <div class="four columns testimonial">
+                <div class="avatar">
+                    <img src="@routes.Assets.at("images/photo-bg.png")" alt="" class="photo-bg"/>
+                    <img src="@routes.Assets.at("images/photo.jpg")" alt="" class="avatar" />
+                </div>
+
+                <p class="content">
+                    <span class="laquo">&nbsp;</span>Lorem ipsum dolor sit amet, sanctus corrumpit ei quo, eu quo meis brute, sed ut possit vocibus graecis.<span class="raquo">&nbsp;</span>
+                </p>
+
+                <div class="sign">
+                    <a href="#">John Doe</a>
+                    <p>Web-designer</p>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial content section -->
+    </div>
+</div>
+
+<div class="space40"></div>
+<div class="clear"></div>
+<div class="space40"></div>
+
+<div class="wrap clients row">
+    <!-- Clients content section -->
+    <div class="three columns" align="middle">
+        <img src="@routes.Assets.at("demo/clients/1.jpg")" alt="" />
+    </div>
+
+    <div class="three columns" align="middle">
+        <img src="@routes.Assets.at("demo/clients/2.jpg")" alt="" />
+    </div>
+
+    <div class="three columns" align="middle">
+        <img src="@routes.Assets.at("demo/clients/3.jpg")" alt="" />
+    </div>
+
+    <div class="three columns" align="middle">
+        <img src="@routes.Assets.at("demo/clients/4.jpg")" alt="" />
+    </div>
+    <!-- Clients content section -->
+</div>
+
+<div class="space40"></div>
+<div class="clear"></div>
+<div class="space40"></div>
+
+<div class="row">
+    <div class="wrap">
+        <div class="contact-content">
+            <!-- Contact content section -->
+            <div class="twelve columns">
+                <h1>Any more questions in your mind?</h1>
+                <p>Feel free to write us or just call us.</p>
+                <div class="six columns email contact">
+                    support@@mail.com
+                </div>
+
+                <div class="six columns phone contact">
+                    +1800 1234 5678
+                </div>
+            </div>
+            <!-- Contact content section -->
+        </div>
+    </div>
+</div>
+
+<div class="space40"></div>
+<div class="clear"></div>
+<div class="space40"></div>
+
+<div class="footer">
+    <div class="row">
+        <!-- Footer content section -->
+        <div class="twelve columns">
+            <div class="four columns footer-widget">
+                <h1><a href="index.html"><img src="@routes.Assets.at("images/logo-footer.png")" alt="" /></a></h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a feugiat sem.</p>
+                <div class="space10"></div>
+                <p>Copyright 2012. Landingapp</p>
+                <div class="space10"></div>
+                <div class="social">
+                    <ul class="social-networks">
+                        <li class="icon-twitter"><a href="#">Twitter</a></li>
+                        <li class="icon-facebook"><a href="#">Facebook</a></li>
+                        <li class="icon-gplus"><a href="#">Google</a></li>
+                        <li class="icon-dribbble"><a href="#">Dribbble</a></li>
+                        <li class="icon-forrst"><a href="#">Forrst</a></li>
+                        <li class="icon-skype"><a href="#">Skype</a></li>
+                        <li class="icon-flickr"><a href="#">Flickr</a></li>
+                        <li class="icon-vimeo"><a href="#">Vimeo</a></li>
+                        <li class="icon-pinterest"><a href="#">Pinterest</a></li>
+                        <li class="icon-rss"><a href="#">RSS</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="four columns footer-widget">
+                <h4>Flickr</h4>
+                <div class="line1"></div>
+                <div class="space30"></div>
+                <ul id="flickr" class="thumbs"></ul>
+            </div>
+
+            <div class="four columns footer-widget">
+                <h4>Tweets</h4>
+                <div class="line1"></div>
+                <div class="space30"></div>
+                <div id="tweets" class="tweet"></div>
+            </div>
+        </div>
+        <!-- Footer content section -->
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- //SCRIPTS -->
+<script type="text/javascript" src='@routes.Assets.at("javascripts/jquery-1.7.2.min.js")'></script>
+<script type='text/javascript' src='@routes.Assets.at("javascriptsresponsiveslides.min.js")'></script>
+<script type="text/javascript" src='@routes.Assets.at("javascripts/jquery.easing.1.3.js")'></script>
+<script type="text/javascript" src='@routes.Assets.at("javascripts/jquery.elastislide.js")'></script>
+<script type="text/javascript" src='@routes.Assets.at("javascripts/jflickrfeed.min.js")'></script>
+<script type="text/javascript" src='@routes.Assets.at("javascripts/jquery.prettyphoto.js")'></script>
+<script type="text/javascript" src='@routes.Assets.at("javascripts/foundation.min.js")'></script>
+<script type="text/javascript" src='@routes.Assets.at("javascripts/libs/underscore-min.js")'></script>
+<script type="text/javascript" src='@routes.Assets.at("javascripts/libs/backbone-min.js")'></script>
+
+<script type="text/javascript" src='@routes.Assets.at("javascripts/main.js")'></script>
+<script type="text/javascript" src='@routes.Assets.at("javascripts/app.js")'></script>
+</body>
+</html>
