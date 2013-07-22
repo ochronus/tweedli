@@ -59,5 +59,13 @@ object Application extends Controller with SecureSocial {
 
   }
 
-
+  def tweets = UserAwareAction  { implicit request =>
+    val alma = "korte"
+    if (request.user != None) {
+      Ok("alma")
+    }
+    else {
+      Unauthorized("go away")
+    }
+  }
 }
