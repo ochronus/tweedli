@@ -2,7 +2,7 @@ package services
 
 import securesocial.core.{Identity, UserId, UserServicePlugin}
 import play.api.Application
-import models.{User,TokenDAO}
+import models.{User,TokenDAO, SocialUser}
 import securesocial.core.providers.Token
 import play.api.Logger
 
@@ -39,6 +39,7 @@ class UserService(application: Application) extends UserServicePlugin(applicatio
    * @param user
    */
   def save(user: Identity) = {
+    SocialUser.create(user)
     val u = User(user)
     User.save(u)
     u

@@ -10,8 +10,10 @@ object ApplicationBuild extends Build {
   val appDependencies = Seq(
     "se.radley" %% "play-plugins-salat" % "1.2",
     "securesocial" %% "securesocial" % "master-SNAPSHOT",
-    "org.twitter4j" % "twitter4j-core" % "3.0.3"
-
+    "org.twitter4j" % "twitter4j-core" % "3.0.3",
+    "postgresql" % "postgresql" % "9.1-901.jdbc4",
+    jdbc,
+    anorm
   )
 
 

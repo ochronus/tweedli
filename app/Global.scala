@@ -15,7 +15,7 @@ object Global extends GlobalSettings {
   override def onStart(app: Application) {
 
     val tweeterActor = Akka.system(app).actorOf(Props(new TweeterActor()))
-    Akka.system(app).scheduler.schedule(0 seconds, 1 minutes, tweeterActor, "TweeterDaemon")
+    Akka.system(app).scheduler.schedule(0 seconds, 5 seconds, tweeterActor, "TweeterDaemon")
 
   }
 

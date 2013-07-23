@@ -2,70 +2,43 @@ package controllers
 
 import play.api._
 import play.api.mvc._
-import securesocial.core.{UserId, Identity, UserServicePlugin}
+import play.api.libs.json._
+import securesocial.core.{UserId, Identity, UserServicePlugin, AuthenticationMethod}
 import securesocial.core.SecureSocial
-import models.{User, Tweet}
+import models.{User, Tweet, OAuth, SocialUser}
 import twitter4j._
 import twitter4j.auth._
 import twitter4j.conf.ConfigurationBuilder
+import org.codehaus.jackson.annotate.JsonValue
 
 
 object Application extends Controller with SecureSocial {
 
 
   def index = UserAwareAction  { implicit request =>
-    if (request.user != None) {
-
-
-      val w_twitter = new TwitterFactory().getInstance()
-
-      w_twitter.setOAuthConsumer(
-        Play.current.configuration.getString("twitter.OAuthConsumerKey").get,
-        Play.current.configuration.getString("twitter.OAuthConsumerSecret").get
-      )
-
-
-
-      val access_token = new AccessToken(
-        request.user.get.oAuth1Info.get.token,
-        request.user.get.oAuth1Info.get.secret
-      )
-
-      w_twitter.setOAuthAccessToken(access_token)
-
-
-      val cb = new ConfigurationBuilder()
-      val consumer_key = Play.current.configuration.getString("twitter.OAuthConsumerKey").get
-      val consumer_secret = Play.current.configuration.getString("twitter.OAuthConsumerSecret").get
-
-      cb.setDebugEnabled(true)
-        .setOAuthConsumerKey(consumer_key)
-        .setOAuthConsumerSecret(consumer_secret)
-        .setOAuthAccessToken(request.user.get.oAuth1Info.get.token)
-        .setOAuthAccessTokenSecret(request.user.get.oAuth1Info.get.secret)
-      val tf = new TwitterFactory(cb.build())
-      val twitter = tf.getInstance()
-
-      Tweet.create("Sample tweet", request.user.get.id.id)
-
-      //twitter.updateStatus(new StatusUpdate("Get your external IP fast:        dig +short myip.opendns.com @resolver1.opendns.com     #devs"))
-      Ok(views.html.app())
+    request.user match {
+      case Some(user) => {
+        Ok(views.html.app())
+      }
+      case None => Ok(views.html.index("Unknown"))
     }
-    else {
-      val userId = if (request.user != None) request.user.get.id.id.toString + " " + request.user.get.id.providerId else "Not logged in"
-      Ok(views.html.index(userId))
-    }
-
-
   }
 
   def tweets = UserAwareAction  { implicit request =>
-    val alma = "korte"
-    if (request.user != None) {
-      Ok("alma")
-    }
-    else {
-      Unauthorized("go away")
+    request.user match {
+
+      case Some(user) => {
+        request.body.asJson match {
+          case Some(post_json) => {
+            val tw_id = Tweet.create(request.user.get.id.id.toLong, (post_json \\ "tweet")(0).as[String])
+            Ok("")
+          }
+          case None => BadRequest("give me data, honey")
+        }
+      }
+
+      case None => Unauthorized("go away")
     }
   }
+
 }
