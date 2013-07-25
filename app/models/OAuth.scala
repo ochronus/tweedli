@@ -47,6 +47,7 @@ object OAuth {
   def create(oauth_version: Int, token: String, secret: String = "",
              token_type: String = "",
              expires_in: Int = 0, refresh_token: String = "") = {
+
     DB.withConnection { implicit connection =>
       val sql_command  =  SQL("insert into oauth (oauth_version, token, secret, token_type, expires_in, refresh_token) " +
         "values ({oauth_version}, {token}, {secret}, {token_type}, {expires_in}, {refresh_token})").on(
@@ -57,7 +58,10 @@ object OAuth {
         'expires_in -> expires_in,
         'refresh_token -> refresh_token
       )
-      sql_command.executeInsert()
+      sql_command.executeInsert() match {
+        case Some(id) => findById(id)
+        case None => None
+      }
     }
   }
 

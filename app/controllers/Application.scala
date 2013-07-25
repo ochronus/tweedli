@@ -5,7 +5,7 @@ import play.api.mvc._
 import play.api.libs.json._
 import securesocial.core.{UserId, Identity, UserServicePlugin, AuthenticationMethod}
 import securesocial.core.SecureSocial
-import models.{User, Tweet, OAuth, SocialUser}
+import models.{Tweet, OAuth, SocialUser}
 import twitter4j._
 import twitter4j.auth._
 import twitter4j.conf.ConfigurationBuilder
@@ -18,7 +18,8 @@ object Application extends Controller with SecureSocial {
   def index = UserAwareAction  { implicit request =>
     request.user match {
       case Some(user) => {
-        Ok(views.html.app())
+
+        Ok(views.html.app()).withSession(("bar", "baz"))
       }
       case None => Ok(views.html.index("Unknown"))
     }

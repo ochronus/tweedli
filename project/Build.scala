@@ -12,6 +12,7 @@ object ApplicationBuild extends Build {
     "securesocial" %% "securesocial" % "master-SNAPSHOT",
     "org.twitter4j" % "twitter4j-core" % "3.0.3",
     "postgresql" % "postgresql" % "9.1-901.jdbc4",
+    "com.typesafe.slick" % "slick_2.10" % "2.0.0-M2",
     jdbc,
     anorm
   )

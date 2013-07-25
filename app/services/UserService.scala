@@ -2,7 +2,7 @@ package services
 
 import securesocial.core.{Identity, UserId, UserServicePlugin}
 import play.api.Application
-import models.{User,TokenDAO, SocialUser}
+import models.{SocialUser}
 import securesocial.core.providers.Token
 import play.api.Logger
 
@@ -14,7 +14,7 @@ class UserService(application: Application) extends UserServicePlugin(applicatio
    * @return an optional user
    */
   def find(id: UserId):Option[Identity] = {
-    User.findOneBySocialId(id)
+    SocialUser.findOneBySocialId(id)
   }
 
   /**
@@ -27,11 +27,7 @@ class UserService(application: Application) extends UserServicePlugin(applicatio
    * @param providerId - the provider id
    * @return
    */
-  def findByEmailAndProvider(email: String, providerId: String):Option[Identity] =
-  {
-  	User.findOneByEmailAndProvider(email, providerId)
-
-  }
+  def findByEmailAndProvider(email: String, providerId: String):Option[Identity] = ???
 
   /**
    * Saves the user.  This method gets called when a user logs in.
@@ -39,10 +35,7 @@ class UserService(application: Application) extends UserServicePlugin(applicatio
    * @param user
    */
   def save(user: Identity) = {
-    SocialUser.create(user)
-    val u = User(user)
-    User.save(u)
-    u
+    SocialUser.create(user).get
   }
 
   /**
@@ -55,9 +48,7 @@ class UserService(application: Application) extends UserServicePlugin(applicatio
    * @param token The token to save
    * @return A string with a uuid that will be embedded in the welcome email.
    */
-  def save(token: Token) = {
-    TokenDAO.save(token)
-  }
+  def save(token: Token) = ???
 
 
   /**
@@ -69,9 +60,7 @@ class UserService(application: Application) extends UserServicePlugin(applicatio
    * @param token the token id
    * @return
    */
-  def findToken(token: String): Option[Token] = {
-    TokenDAO.findToken(token)
-  }
+  def findToken(token: String): Option[Token] = ???
 
   /**
    * Deletes a token
@@ -81,12 +70,7 @@ class UserService(application: Application) extends UserServicePlugin(applicatio
    *
    * @param uuid the token id
    */
-  def deleteToken(uuid: String) {
-    val token = TokenDAO.findToken(uuid)
-    if(token.isDefined){
-      TokenDAO.remove(token.get)
-    }
-  }
+  def deleteToken(uuid: String) = ???
 
   /**
    * Deletes all expired tokens
@@ -95,7 +79,5 @@ class UserService(application: Application) extends UserServicePlugin(applicatio
    * implementation
    *
    */
-  def deleteExpiredTokens() {
-    TokenDAO.deleteExpiredTokens()
-  }
+  def deleteExpiredTokens() = ???
 }
