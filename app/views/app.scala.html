@@ -1,20 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Tweedli - stack up your tweets with class</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href='@routes.Assets.at("css/bootstrap.min.css")' rel="stylesheet">
-    <link href='@routes.Assets.at("css/bootstrap-responsive.min.css")' rel="stylesheet">
-    <link href='@routes.Assets.at("css/style.css")' rel="stylesheet">
-    <link href='@routes.Assets.at("css/bootstrap-lightbox.min.css")' rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
-    <link rel="image_src" href="thumbnail.png" />
-    <link rel="icon" type="image/ico" href="favicon.ico">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css">
+    <link rel="stylesheet" href="@routes.Assets.at("css/style.css")">
+
 </head>
+
 <body>
-<div id="tweedli_container"></div>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Project name</a>
+        <div class="nav-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
+
+<div class="container">
+    <div id="tweedli_container" class="span6 text-center pagination-center"></div>
+
+
+</div><!-- /.container -->
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/js/bootstrap.min.js"></script>
 <script data-main='/assets/js/main' src='@routes.Assets.at("js/lib/require/require-min.js")'></script>
 </body>
 </html>

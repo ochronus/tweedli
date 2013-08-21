@@ -34,7 +34,7 @@ case class SocialUser(id: UserId, added: Date,
 object SocialUser {
 
   val mapper = {
-      get[Pk[Long]]("id") ~
+    get[Pk[Long]]("id") ~
       get[Date]("added") ~
       get[String]("first_name") ~
       get[String]("last_name") ~
@@ -67,7 +67,7 @@ object SocialUser {
   def create(user: Identity): Option[SocialUser] = {
     findById(user.id.id.toLong) match {
       case Some(user) => {
-         Some(user)
+        Some(user)
       }
       case None => {
         DB.withConnection { implicit connection =>
